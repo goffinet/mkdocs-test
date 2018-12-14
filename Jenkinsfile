@@ -1,15 +1,10 @@
 pipeline {
   agent {
     docker {
-      image 'python:slim-stretch'
+      image 'goffinet/mkdocs'
     }
   }
   stages {
-    stage('Install') {
-      steps {
-        sh 'pip install mkdocs-material'
-      }
-    }
     stage('Build') {
       steps {
         sh 'mkdocs build'
@@ -20,9 +15,9 @@ pipeline {
         sh 'ls -l site/'
       }
     }
-    stage('Deliver') {
+    stage('Package') {
       steps {
-        sh 'echo deliver'
+        sh 'zip -r site.zip site'
       }
     }
   }
