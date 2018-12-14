@@ -23,7 +23,7 @@ pipeline {
     }
     stage('Deliver') {
       steps {
-        sh 'scp -r site/* root@get.goffinet.org:/var/www/html/mkdocs-test'
+        sh 'scp -o StrictHostKeyChecking=no -r site/* root@get.goffinet.org:/var/www/html/mkdocs-test'
       }
     }
   }
