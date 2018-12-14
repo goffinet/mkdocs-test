@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'goffinet/mkdocs'
-      args '-v /root/.ssh:/root/.ssh'
+      args '-v /root/.ssh:/opt/.ssh/'
     }
 
   }
@@ -24,7 +24,11 @@ pipeline {
     }
     stage('Deliver') {
       steps {
-        sh 'scp -o StrictHostKeyChecking=no -r site/* root@get.goffinet.org:/var/www/html/mkdocs-test/'
+        sh '''scp 
+-i /opt/.ssh/id_rsa
+-o StrictHostKeyChecking=no 
+-r site/* 
+root@get.goffinet.org:/var/www/html/mkdocs-test/'''
       }
     }
   }
