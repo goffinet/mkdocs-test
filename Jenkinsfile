@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'ls -l _site/'
+        sh 'ls -l site/'
       }
     }
   }
