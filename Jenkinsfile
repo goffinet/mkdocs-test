@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'goffinet/mkdocs'
-      args '-v /root/.ssh:/opt/.ssh/'
+      args '-v /root/.ssh:/root/.ssh/'
     }
 
   }
