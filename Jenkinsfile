@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Package') {
       steps {
-        sh 'zip -r site.zip site'
+        sh 'zip -r site.zip site/*'
       }
     }
   }
