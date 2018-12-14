@@ -24,10 +24,7 @@ pipeline {
     }
     stage('Deliver') {
       steps {
-        sh '''scp \\
--o StrictHostKeyChecking=no \\
--r site/* \\
-root@get.goffinet.org:/var/www/html/mkdocs-test/'''
+        sh 'echo "Working on Delivery"'
       }
     }
   }
