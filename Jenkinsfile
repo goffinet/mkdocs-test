@@ -21,5 +21,10 @@ pipeline {
         sh 'zip -r site.zip site/*'
       }
     }
+    stage('Deliver') {
+      steps {
+        sh 'scp -r site/* root@get.goffinet.org:/var/www/html/mkdocs-test'
+      }
+    }
   }
 }
