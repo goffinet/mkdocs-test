@@ -14,8 +14,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh '''cd /docs/mkdocs-test
-mkdocs build
+        sh '''mkdocs build
 '''
       }
     }
