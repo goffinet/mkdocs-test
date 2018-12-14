@@ -24,10 +24,10 @@ pipeline {
     }
     stage('Deliver') {
       steps {
-        sh '''scp 
--i /opt/.ssh/id_rsa
--o StrictHostKeyChecking=no 
--r site/* 
+        sh '''scp \\
+-i /opt/.ssh/id_rsa \\
+-o StrictHostKeyChecking=no \\
+-r site/* \\
 root@get.goffinet.org:/var/www/html/mkdocs-test/'''
       }
     }
