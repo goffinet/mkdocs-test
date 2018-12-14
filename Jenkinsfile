@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh 'pip install mkdocs-material'
+        sh '#pip install mkdocs-material'
       }
     }
     stage('Build') {
