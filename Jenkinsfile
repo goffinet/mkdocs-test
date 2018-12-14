@@ -1,21 +1,18 @@
 pipeline {
   agent {
     docker {
-      image 'squidfunk/mkdocs-material'
-      args '--rm -it'
+      image 'python:slim-stretch'
     }
-
   }
   stages {
     stage('Install') {
       steps {
-        sh '#pip install mkdocs-material'
+        sh 'pip install mkdocs-material'
       }
     }
     stage('Build') {
       steps {
-        sh '''mkdocs build
-'''
+        sh 'mkdocs build'
       }
     }
     stage('Test') {
