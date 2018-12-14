@@ -2,7 +2,9 @@ pipeline {
   agent {
     docker {
       image 'goffinet/mkdocs'
+      args '-v ~/.ssh/:~.ssh'
     }
+
   }
   stages {
     stage('Build') {
