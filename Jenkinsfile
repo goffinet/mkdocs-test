@@ -20,8 +20,9 @@ pipeline {
     stage('Test') {
       steps {
         sh 'ls -l site/'
-        sh 'mkdocs serve & ; pid=$!'
-        sh 'grep \'Powered by\' | curl -s http://127.0.0.1:3000'
+        sh 'cd site ; python -m SimpleHTTPServer 3000 & ; pid=$$'
+        sh 'grep \'Powered by\' | curl -s http://127.0.0.1:3000 ; echo $?'
+        sh 'kill -9 $pid'
       }
     }
     stage('Deliver') {
