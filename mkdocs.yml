@@ -1,0 +1,12 @@
+site_name: Documentation François
+theme:
+  name: material
+  palette:
+    primary: 'pink'
+    accent: 'green'
+  logo:
+    icon: thumb_up
+  language: 'fr'
+nav:
+  - Accueil: index.md
+  - Installation: installation.md
