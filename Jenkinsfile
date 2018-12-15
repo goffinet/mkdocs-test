@@ -26,6 +26,7 @@ pipeline {
     stage('Deliver') {
       steps {
         sh 'echo "Working on Delivery"'
+        sh 'scp site.zip root@get.goffinet.org:/var/www/html/mkdocs-test/'
       }
     }
   }
