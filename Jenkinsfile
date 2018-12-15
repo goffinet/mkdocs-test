@@ -20,6 +20,7 @@ pipeline {
     stage('Package') {
       steps {
         sh 'zip -r site.zip site/*'
+        archiveArtifacts(artifacts: 'site.zip', caseSensitive: true)
       }
     }
     stage('Deliver') {
